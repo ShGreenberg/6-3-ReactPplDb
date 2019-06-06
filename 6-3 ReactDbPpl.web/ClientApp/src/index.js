@@ -41,9 +41,18 @@ class App extends React.Component{
     }
 
     onClickCheckBox = e => {
+        //didnt deal with uncheck - just tried ifelse not work..... now i think it does
         const copy = this.state.checkedPeople;
-        copy.push(parseInt(e.target.id));
-        this.setState({ checkedPeople: copy });
+        console.log(parseInt(e.target.id));
+        if (copy.includes(parseInt(e.target.id))) {
+           const copy2 = copy.filter(p => p !== parseInt(e.target.id));
+            console.log(copy);
+            this.setState({ checkedPeople: copy2 });
+        } else {
+            copy.push(parseInt(e.target.id));
+            this.setState({ checkedPeople: copy });
+
+        }
         console.log(this.state.checkedPeople, e.target.id);
        
     }

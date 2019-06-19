@@ -1,5 +1,7 @@
 ﻿import React from "react";
-
+import axios from "axios";
+import PeopleTable from "./PeopleTable";
+import ButtonRow from "./ButtonRow";
 export default class HomePage extends React.Component {
     state = {
         person: {
@@ -71,6 +73,7 @@ export default class HomePage extends React.Component {
 
 
     render() {
+        console.log("hp");
         return (<div className="containor" style={{ marginTop: 40, marginLeft: 20 }}>
            
             <PeopleTable people={this.state.people} checkedPeople={this.state.checkedPeople}

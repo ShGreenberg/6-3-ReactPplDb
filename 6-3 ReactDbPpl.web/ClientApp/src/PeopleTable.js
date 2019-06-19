@@ -1,5 +1,5 @@
 ﻿import React from "react";
-
+import {Link} from "react-router-dom";
 export default class PeopleTable extends React.Component {
 
     render() {
@@ -18,6 +18,7 @@ export default class PeopleTable extends React.Component {
                     <th>First Name</th>
                     <th>Last Name </th>
                     <th>Age</th>
+                    <th>Update</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,6 +29,7 @@ export default class PeopleTable extends React.Component {
                         <td>{person.firstName}</td>
                         <td>{person.lastName}</td>
                         <td>{person.age}</td>
+                        <td><Link to={`/updateperson/${person.id}`} /></td>
                     </tr>)
                 })}
             </tbody>

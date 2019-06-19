@@ -1,4 +1,5 @@
 ﻿import React from "react";
+import axios from "axios";
 import PersonForm from "./PersonForm";
 export default class AddPersonPage extends React.Component {
     state = {
@@ -15,7 +16,7 @@ export default class AddPersonPage extends React.Component {
         this.setState({ person })
     }
 
-    onAddPerson = () => {
+    onSubmit = () => {
         const { person } = this.state;
         axios.post("/api/home/addperson", person).then(() => {
             //axios.get("/api/home/getpeople").then(({ data }) => {
@@ -27,7 +28,7 @@ export default class AddPersonPage extends React.Component {
 
     render() {
         return (<div className="container" style={{ marginTop: 60 }}>
-            <PersonForm onAddPerson={this.onAddPerson} onInputChange={this.onInputChange} person={this.state} />
+            <PersonForm onSubmit={this.onSubmit} onInputChange={this.onInputChange} person={this.state} />
         </div>)
     }
 }

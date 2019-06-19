@@ -3,7 +3,7 @@
 export default class PersonForm extends React.Component {
 
     render() {
-        const { onInputChange, onAddPerson, person } = this.props;
+        const { onInputChange, onSubmit, person } = this.props;
         return (<div className="row">
             <div className="col-md-3">
                 <input type="text" placeholder="first name" value={person.firstName} name="firstName" className="form-control" onChange={onInputChange} />
@@ -12,10 +12,10 @@ export default class PersonForm extends React.Component {
                 <input type="text" placeholder="last name" value={person.lastName} name="lastName" className="form-control" onChange={onInputChange} />
             </div>
             <div className="col-md-3">
-                <input type="text" placeholder="age" value={person.age} name="age" className="form-control" onChange={onInputChange} />
+                <input type="text" placeholder="age" value={person.age} name="age" className="form-control" onChange={onSubmit} />
             </div>
             <div className="col-md-3">
-                <button className="btn btn-primary" onClick={onAddPerson}>Add Person</button>
+                <button className="btn btn-primary" onClick={onSubmit}>Add Person</button>
             </div>
         </div>)
     }

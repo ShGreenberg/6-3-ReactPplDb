@@ -27,6 +27,21 @@ namespace _6_3_ReactDbPpl.web.Controllers
             rep.AddPerson(person);
         }
 
+        [Route("updateperson")]
+        [HttpPost]
+        public void UpdatePerson(Person person)
+        {
+            PersonRepository rep = new PersonRepository(_connString);
+            rep.UpdatePerson(person);
+        }
+
+        [Route("getperson/{id}")]
+        public Person GetPerson(int id)
+        {
+            PersonRepository rep = new PersonRepository(_connString);
+            return rep.GetPerson(id);
+        }
+
         [Route("getpeople")]
         public IEnumerable<Person> GetPeople()
         {

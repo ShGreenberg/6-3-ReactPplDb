@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,24 @@ namespace _6_3_ReactDbPpl.data
             {
                 ctx.People.Add(person);
                 ctx.SaveChanges();
+            }
+        }
+
+        public void UpdatePerson(Person person)
+        {
+            using (var context = new PeopleContext(_connString))
+            {
+                context.People.Attach(person);
+                context.Entry(person).State = EntityState.Modified;
+                context.SaveChanges();
+            }
+        }
+
+        public Person GetPerson(int id)
+        {
+            using (var ctx = new PeopleContext(_connString))
+            {
+                return ctx.People.FirstOrDefault(p => p.Id == id);
             }
         }
 

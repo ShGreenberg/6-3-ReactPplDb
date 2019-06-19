@@ -20,36 +20,15 @@ export default class HomePage extends React.Component {
         })
     }
 
-    //onInputChange = e => {
-    //    const person = this.state.person;
-    //    person[e.target.name] = e.target.value;
-    //    this.setState({ person })
-    //}
-
-    //onAddPerson = () => {
-    //    const { person } = this.state;
-    //    axios.post("/api/home/addperson", person).then(() => {
-    //        axios.get("/api/home/getpeople").then(({ data }) => {
-    //            this.setState({ people: data, person: { firstName: "", lastName: "", age: "" } });
-    //        })
-    //    })
-    //}
-
     onClickCheckBox = e => {
-        //didnt deal with uncheck - just tried ifelse not work..... now i think it does
         const copy = this.state.checkedPeople;
-        console.log(parseInt(e.target.id));
         if (copy.includes(parseInt(e.target.id))) {
             const copy2 = copy.filter(p => p !== parseInt(e.target.id));
-            console.log(copy);
             this.setState({ checkedPeople: copy2 });
         } else {
             copy.push(parseInt(e.target.id));
             this.setState({ checkedPeople: copy });
-
         }
-        console.log(this.state.checkedPeople, e.target.id);
-
     }
 
     onClearAll = () => {
@@ -75,12 +54,12 @@ export default class HomePage extends React.Component {
     render() {
         console.log("hp");
         return (<div className="containor" style={{ marginTop: 40, marginLeft: 20 }}>
-           
-            <PeopleTable people={this.state.people} checkedPeople={this.state.checkedPeople}
-                onClickCheckBox={this.onClickCheckBox} />
             <ButtonRow onDeleteChecked={this.onDeleteChecked} onCheckAll={this.onCheckAll}
                 onClearAll={this.onClearAll} />
+            <br/>
+            <PeopleTable people={this.state.people} checkedPeople={this.state.checkedPeople}
+                onClickCheckBox={this.onClickCheckBox} />
+           
         </div>);
     }
 }
-// <PersonAdder onAddPerson={this.onAddPerson} onInputChange={this.onInputChange} person={this.state.person} />

@@ -18,10 +18,8 @@ export default class AddPersonPage extends React.Component {
 
     onSubmit = () => {
         const { person } = this.state;
+        console.log(person);
         axios.post("/api/home/addperson", person).then(() => {
-            //axios.get("/api/home/getpeople").then(({ data }) => {
-            //    this.setState({ people: data, person: { firstName: "", lastName: "", age: "" } });
-            //})
             this.props.history.push('/');
         })
     }

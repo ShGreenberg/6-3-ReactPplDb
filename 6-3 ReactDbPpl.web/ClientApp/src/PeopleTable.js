@@ -6,7 +6,6 @@ export default class PeopleTable extends React.Component {
         const { people, checkedPeople, onClickCheckBox } = this.props;
         const check = (id) => {
             if (checkedPeople.includes(id)) {
-                console.log(id);
                 return "checked"
             }
         }
@@ -29,7 +28,7 @@ export default class PeopleTable extends React.Component {
                         <td>{person.firstName}</td>
                         <td>{person.lastName}</td>
                         <td>{person.age}</td>
-                        <td><Link to={`/updateperson/${person.id}`} /></td>
+                        <td><Link to={`/updateperson/${person.id}`} className="btn btn-primary">Update</Link></td>
                     </tr>)
                 })}
             </tbody>

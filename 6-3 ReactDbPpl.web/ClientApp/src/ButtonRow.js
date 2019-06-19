@@ -1,5 +1,5 @@
 ﻿import React from "react";
-
+import { Link } from "react-router-dom";
 export default class ButtonRow extends React.Component {
 
     render() {
@@ -15,6 +15,9 @@ export default class ButtonRow extends React.Component {
                 </div>
                 <div className="col-md-3">
                     <button className="btn btn-danger" onClick={onDeleteChecked}>Delete Checked</button>
+                </div>
+                <div className="col-md-3">
+                    <Link className="btn btn-primary" to={"/addperson"}>Add Person</Link>
                 </div>
             </div>
         </div>)

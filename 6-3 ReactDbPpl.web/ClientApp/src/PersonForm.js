@@ -1,6 +1,6 @@
 ﻿import React from "react";
 
-export default class PersonAdder extends React.Component {
+export default class PersonForm extends React.Component {
 
     render() {
         const { onInputChange, onAddPerson, person } = this.props;
